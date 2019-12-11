@@ -1,0 +1,10 @@
+---
+- name: initial server
+  hosts: server
+  roles:
+  - { role: initial_server, become: yes }
+
+- name: initial client
+  hosts: client
+  roles:
+  - { role: initial_client, become: yes }

@@ -1,0 +1,13 @@
+- name: copy host resolver
+  template: src=hosts.j2 dest=/etc/hosts
+  
+- name: install ppa
+  apt_repository:
+    repo: ppa:tohojo/flent
+
+- name: install package
+  apt:
+    pkg:
+      - netperf
+      - flent
+    update_cache: yes

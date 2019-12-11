@@ -1,0 +1,17 @@
+[openstack]
+controller0
+compute0
+compute1
+compute2
+
+[server]
+vm-sn-dc-1 ansible_ssh_user=ubuntu
+
+[client]
+vm-sn-dc-2 ansible_ssh_user=ubuntu
+
+[all:vars]
+serverip=192.168.0.50
+serverhostname=vm-sn-dc-1
+clientip=192.168.0.51
+clienthostname=vm-sn-dc-2
