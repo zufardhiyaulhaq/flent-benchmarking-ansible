@@ -5,10 +5,12 @@ compute1
 compute2
 
 [server]
-vm-sndc-1 ansible_ssh_user=ubuntu
+vm-sndc-1 ansible_ssh_user=ubuntu ansible_python_interpreter=/usr/bin/python3
+
 
 [client]
-vm-sndc-2 ansible_ssh_user=ubuntu
+vm-sndc-2 ansible_ssh_user=ubuntu ansible_python_interpreter=/usr/bin/python3
+
 
 [all:vars]
 serverip=192.168.0.50
