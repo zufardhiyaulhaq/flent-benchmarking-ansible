@@ -13,3 +13,8 @@
   hosts: openstack
   roles:
   - initial_openstack
+
+- name: run test
+  hosts: openstack,client
+  roles:
+  - { role: run_test, become: yes }
