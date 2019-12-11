@@ -7,9 +7,9 @@
 - name: run script
   shell: bash /root/flent/test.sh
   environment:
-    type: {% raw %}{{ type }}{% endraw %}
-    scenario: {% raw %}{{ scenario }}{% endraw %}
-    repetition: {{ i }}
+    type: "{% raw %}{{ type }}{% endraw %}"
+    scenario: "{% raw %}{{ scenario }}{% endraw %}"
+    repetition: "{{ i }}"
 
 - name: sleep
   pause:
