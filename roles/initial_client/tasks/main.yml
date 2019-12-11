@@ -11,3 +11,31 @@
       - netperf
       - flent
     update_cache: yes
+
+- name: Create a directory
+  file:
+    path: /root/flent/{{ scenario }}
+    state: directory
+
+- name: Create a directory
+  file:
+    path: /root/flent/{{ scenario }}
+    state: directory
+
+- name: Create a directory
+  file:
+    path: /root/flent/{{ scenario }}/rrul
+    state: directory
+
+- name: Create a directory
+  file:
+    path: /root/flent/{{ scenario }}/tcp_upload
+    state: directory
+
+- name: Create a directory
+  file:
+    path: /root/flent/{{ scenario }}/tcp_download
+    state: directory
+
+- name: copy bash test
+  template: src=test.sh.j2 dest=/root/flent/test.sh

@@ -1,1 +1,7 @@
 ansible_python_interpreter: /usr/bin/python3
+
+scenario: sndc
+# list avaliable: sndc, snsc, dndc, dnsc
+
+type: rrul
+# list available: rrul, tcp_download, tcp_upload

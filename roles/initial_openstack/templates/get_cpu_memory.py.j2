@@ -1,0 +1,18 @@
+import sys
+import json
+import psutil
+from time import sleep
+
+data = {}
+
+time = int(sys.argv[1])
+scenario = sys.argv[2]
+type = sys.argv[3]
+repetition = sys.argv[4]
+
+for i in range(time):
+    data[i] = [psutil.cpu_percent(),dict(psutil.virtual_memory()._asdict())["percent"]]
+    sleep(1)
+
+with open('{}_{}_cpu_memory_{}.json'.format(scenario, type, repetition), 'w') as fp:
+    json.dump(data, fp)

@@ -5,13 +5,13 @@ compute1
 compute2
 
 [server]
-vm-sn-sc-1 ansible_ssh_user=ubuntu
+vm-snsc-1 ansible_ssh_user=ubuntu
 
 [client]
-vm-sn-sc-2 ansible_ssh_user=ubuntu
+vm-snsc-2 ansible_ssh_user=ubuntu
 
 [all:vars]
 serverip=192.168.0.50
-serverhostname=vm-sn-sc-1
+serverhostname=vm-snsc-1
 clientip=192.168.0.51
-clienthostname=vm-sn-sc-2
+clienthostname=vm-snsc-2

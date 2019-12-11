@@ -8,3 +8,8 @@
   hosts: client
   roles:
   - { role: initial_client, become: yes }
+
+- name: initial openstack
+  hosts: openstack
+  roles:
+  - initial_openstack

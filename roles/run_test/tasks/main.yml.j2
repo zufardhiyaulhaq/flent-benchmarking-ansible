@@ -1,0 +1,19 @@
+- name: sleep
+  pause:
+    minutes: 1
+
+{% for i in range(repetition) %}
+
+- name: run script
+  shell: bash /root/flent/test.sh
+  environment:
+    type:  {% raw %}{{ type }}{% endraw %}
+    scenario: {% raw %}{{ scenario }}{% endraw %}
+    repetition: {{ i }}
+
+- name: sleep
+  pause:
+    minutes: 1
+
+{% endfor %}
+  

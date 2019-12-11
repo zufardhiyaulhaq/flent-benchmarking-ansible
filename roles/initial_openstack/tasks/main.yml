@@ -1,0 +1,10 @@
+- name: Create a directory
+  file:
+    path: /root/flent
+    state: directory
+
+- name: copy host resolver
+  template: src=get_cpu_memory.py.j2 dest=/root/flent/get_cpu_memory.py
+
+- name: copy host resolver
+  template: src=test.sh.j2 dest=/root/flent/test.sh

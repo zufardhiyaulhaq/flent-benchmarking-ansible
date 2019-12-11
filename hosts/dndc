@@ -5,13 +5,13 @@ compute1
 compute2
 
 [server]
-vm-dn-dc-1 ansible_ssh_user=ubuntu
+vm-dndc-1 ansible_ssh_user=ubuntu
 
 [client]
-vm-dn-dc-2 ansible_ssh_user=ubuntu
+vm-dndc-2 ansible_ssh_user=ubuntu
 
 [all:vars]
 serverip=192.168.0.50
-serverhostname=vm-dn-dc-1
+serverhostname=vm-dndc-1
 clientip=192.168.1.50
-clienthostname=vm-dn-dc-2
+clienthostname=vm-dndc-2
