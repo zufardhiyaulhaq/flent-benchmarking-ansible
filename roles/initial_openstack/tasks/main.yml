@@ -3,8 +3,34 @@
     path: /root/flent
     state: directory
 
-- name: copy host resolver
+- name: Create a directory
+  file:
+    path: /root/flent/{{ scenario }}
+    state: directory
+
+- name: Create a directory
+  file:
+    path: /root/flent/{{ scenario }}/rrul
+    state: directory
+
+- name: Create a directory
+  file:
+    path: /root/flent/{{ scenario }}/tcp_upload
+    state: directory
+
+- name: Create a directory
+  file:
+    path: /root/flent/{{ scenario }}/tcp_download
+    state: directory
+
+- name: copy python
   template: src=get_cpu_memory.py.j2 dest=/root/flent/get_cpu_memory.py
 
-- name: copy host resolver
+- name: copy python
+  template: src=generate_graphic.py.j2 dest=/root/flent/generate_graphic.py
+
+- name: copy bash
   template: src=test.sh.j2 dest=/root/flent/test.sh
+
+- name: copy bash
+  template: src=generate_graphic.sh.j2 dest=/root/flent/generate_graphic.sh

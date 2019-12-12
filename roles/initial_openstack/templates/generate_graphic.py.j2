@@ -1,0 +1,63 @@
+import os,json
+import pandas as pd
+from operator import add 
+import matplotlib.pyplot as plt 
+
+# get scenario and type from environment
+host = os.uname()[1]
+scenario = sys.argv[1]
+type = sys.argv[2]
+
+# get all json files
+path_to_json = '/root/flent/{}/{}/'.format(scenario,type)
+json_files = [pos_json for pos_json in os.listdir(path_to_json) if pos_json.endswith('.json')]
+
+# create empty list
+cpu = []
+mem = []
+len = 0
+
+# get total files
+counter = len(json_files)
+
+# open all files
+for files in json_files:
+    with open("/root/flent/{}/{}/{}".format(scenario,type,files)) as json_file:
+
+        # load data files
+        data = json.load(json_file)
+
+        # get data length
+        data_len = len(data)
+
+        # get data cpu and memory
+        data_cpu = [data[str(i)][0] for i in range(data_len)]
+        data_mem = [data[str(i)][1] for i in range(data_len)]
+
+        # if global data is empty, fill with data from files
+        # this mean first loop
+        if not cpu:
+            cpu = data_cpu
+            mem = data_mem
+            len = data_len
+
+        # if not empty
+        # add global data with data files by appending each list
+        else:
+            cpu = list(map(add, cpu, data_cpu)) 
+            mem = list(map(add, mem, data_mem))
+
+# if all data have been added, divide to get real data
+cpu = list(map(lambda x: x/counter, cpu))
+mem = list(map(lambda x: x/counter, mem))
+
+# create plot
+plt.plot(len, cpu, label = "CPU") 
+plt.plot(len, mem, label = "Memory") 
+plt.xlabel('Time') 
+plt.ylabel('Percentage') 
+plt.title('CPU & Memory Usage') 
+plt.legend() 
+
+# create png
+plt.savefig('/root/flent/{}/{}/{}_{}_{}.png'.format(scenario,type,host,scenario,type)) 

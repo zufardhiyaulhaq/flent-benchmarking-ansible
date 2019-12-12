@@ -14,7 +14,7 @@
 
 - name: Create a directory
   file:
-    path: /root/flent/{{ scenario }}
+    path: /root/flent/
     state: directory
 
 - name: Create a directory

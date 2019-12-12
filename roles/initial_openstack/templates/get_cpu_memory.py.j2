@@ -14,5 +14,5 @@ for i in range(time):
     data[i] = [psutil.cpu_percent(),dict(psutil.virtual_memory()._asdict())["percent"]]
     sleep(1)
 
-with open('/root/flent/{}_{}_cpu_memory_{}.json'.format(scenario, type, repetition), 'w') as fp:
+with open('/root/flent/{}/{}/{}_{}_cpu_memory_{}.json'.format(scenario, type, scenario, type, repetition), 'w') as fp:
     json.dump(data, fp)
