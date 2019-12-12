@@ -18,3 +18,8 @@
   hosts: openstack,client
   roles:
   - { role: run_test, become: yes }
+
+- name: generate graphic openstack
+  hosts: openstack
+  roles:
+  - generate_graphic_openstack

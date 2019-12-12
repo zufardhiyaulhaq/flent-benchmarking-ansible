@@ -1,4 +1,4 @@
-import os,json
+import os,json,sys
 import pandas as pd
 from operator import add 
 import matplotlib.pyplot as plt 
@@ -15,7 +15,7 @@ json_files = [pos_json for pos_json in os.listdir(path_to_json) if pos_json.ends
 # create empty list
 cpu = []
 mem = []
-len = 0
+length = 0
 
 # get total files
 counter = len(json_files)
@@ -39,7 +39,7 @@ for files in json_files:
         if not cpu:
             cpu = data_cpu
             mem = data_mem
-            len = data_len
+            length = data_len
 
         # if not empty
         # add global data with data files by appending each list
@@ -50,10 +50,11 @@ for files in json_files:
 # if all data have been added, divide to get real data
 cpu = list(map(lambda x: x/counter, cpu))
 mem = list(map(lambda x: x/counter, mem))
+length = [i for i in range(length)]
 
 # create plot
-plt.plot(len, cpu, label = "CPU") 
-plt.plot(len, mem, label = "Memory") 
+plt.plot(length, cpu, label = "CPU") 
+plt.plot(length, mem, label = "Memory") 
 plt.xlabel('Time') 
 plt.ylabel('Percentage') 
 plt.title('CPU & Memory Usage') 
