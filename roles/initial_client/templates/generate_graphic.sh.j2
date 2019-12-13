@@ -1,0 +1,19 @@
+
+#!/bin/bash
+
+if [ "$type" == "rrul" ]
+then
+    python3 /root/flent/rrul_graphic.py $scenario $type $ovnovs
+    
+elif [ "$type" == "tcp_download" ]
+then
+    python3 /root/flent/tcp_download_graphic.py $scenario $type $ovnovs
+
+elif [ "$type" == "tcp_upload" ]
+then
+    python3 /root/flent/tcp_upload_graphic.py $scenario $type $ovnovs
+
+fi
+
+
+    

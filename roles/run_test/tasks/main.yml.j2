@@ -8,8 +8,9 @@
   environment:
     type: "{% raw %}{{ type }}{% endraw %}"
     scenario: "{% raw %}{{ scenario }}{% endraw %}"
+    ovnovs: "{% raw %}{{ ovnovs }}{% endraw %}"
     repetition: "{{ i }}"
-
+    
 - name: sleep
   pause:
     minutes: 1

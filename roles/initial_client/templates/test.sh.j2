@@ -2,13 +2,13 @@
 
 if [ "$type" == "rrul" ]
 then
-    flent rrul -p all_scaled -l 60 -s 1 -d 10 -H vm-$scenario-1 -t single-network-difference-compute-$repetition -o /root/flent/$scenario/rrul/$scenario-rull-$repetition.png -D /root/flent/$scenario/rrul/
+    flent rrul -p all_scaled -l 60 -s 1 -d 10 -H vm-$scenario-1 -t $type-$repetition -o /root/flent/$scenario/rrul/$scenario-rull-$repetition.png -D /root/flent/$scenario/rrul/
     
 elif [ "$type" == "tcp_download" ]
 then
-    flent tcp_download -p totals -l 60 -s 1 -d 10 -H vm-$scenario-1 -t single-network-difference-compute-$repetition -o /root/flent/$scenario/tcp_download/$scenario-tcp-download-$repetition.png -D /root/flent/$scenario/tcp_download/
+    flent tcp_download -p totals -l 60 -s 1 -d 10 -H vm-$scenario-1 -t $type-$repetition -o /root/flent/$scenario/tcp_download/$scenario-tcp-download-$repetition.png -D /root/flent/$scenario/tcp_download/
     
 elif [ "$type" == "tcp_upload" ]
 then
-    flent tcp_upload -p totals -l 60 -s 1 -d 10 -H vm-$scenario-1 -t single-network-difference-compute-$repetition -o /root/flent/$scenario/tcp_upload/$scenario-tcp-upload-$repetition.png -D /root/flent/$scenario/tcp_upload/
+    flent tcp_upload -p totals -l 60 -s 1 -d 10 -H vm-$scenario-1 -t $type-$repetition -o /root/flent/$scenario/tcp_upload/$scenario-tcp-upload-$repetition.png -D /root/flent/$scenario/tcp_upload/
 fi

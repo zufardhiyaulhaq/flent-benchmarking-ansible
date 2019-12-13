@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 host = os.uname()[1]
 scenario = sys.argv[1]
 type = sys.argv[2]
+ovnovs = sys.argv[3]
 
 # get all json files
 path_to_json = '/root/flent/{}/{}/'.format(scenario,type)
@@ -57,8 +58,8 @@ plt.plot(length, cpu, label = "CPU")
 plt.plot(length, mem, label = "Memory") 
 plt.xlabel('Time') 
 plt.ylabel('Percentage') 
-plt.title('CPU & Memory Usage') 
+plt.title('{}\nCPU & Memory Usage\n{} {} {}'.format(ovnovs,host,scenario,type)) 
 plt.legend() 
 
 # create png
-plt.savefig('/root/flent/{}/{}/{}_{}_{}.png'.format(scenario,type,host,scenario,type)) 
+plt.savefig('/root/flent/{}/{}/{}_{}_{}_{}.png'.format(scenario,type,ovnovs,host,scenario,type)) 

@@ -1,0 +1,66 @@
+import os,json,sys
+import pandas as pd
+import statistics
+from operator import add 
+import matplotlib.pyplot as plt 
+
+# get scenario and type from environment
+host = os.uname()[1]
+scenario = sys.argv[1]
+type = sys.argv[2]
+ovnovs = sys.argv[3]
+
+# get all json files
+path_to_json = '/root/flent/{}/{}/'.format(scenario,type)
+json_files = [pos_json for pos_json in os.listdir(path_to_json) if pos_json.endswith('.flent')]
+
+# create empty list
+download = []
+upload = []
+latency = []
+
+# get total files
+counter = len(json_files)
+
+# open all files
+for files in json_files:
+    with open("/root/flent/{}/{}/{}".format(scenario,type,files)) as json_file:
+        
+        # load data files
+        data = json.load(json_file)
+
+        download.append(statistics.mean([i for i in data["results"]["TCP download avg"] if i]))
+        upload.append(statistics.mean([i for i in data["results"]["TCP upload avg"] if i]))
+        latency.append(statistics.mean([i for i in data["results"]["Ping (ms) avg"] if i]))
+
+        
+# # # if all data have been added, divide to get real data
+# download_average = list(map(lambda x: x/counter, download_average))
+# upload_average = list(map(lambda x: x/counter, upload_average))
+# latency_average = list(map(lambda x: x/counter, latency_average))
+
+length = [i for i in range(counter)]
+
+
+plt.figure()
+
+plt.subplot(221)
+plt.plot(length, download, label = "Download Average") 
+plt.xlabel('Time') 
+plt.ylabel('Mbits/s')
+
+plt.subplot(222)
+plt.plot(length, upload, label = "Upload Average") 
+plt.xlabel('Time') 
+plt.ylabel('Mbits/s')
+
+plt.subplot(212)
+plt.plot(length, latency, label = "Latency Average") 
+plt.xlabel('Time') 
+plt.ylabel('Latency (ms)')
+
+plt.suptitle('{}\nRealtime Response Under Load\n{} {} {}'.format(ovnovs,host,scenario,type))   
+plt.legend() 
+
+# # create png
+# plt.savefig('/root/flent/{}/{}/{}_{}_{}_{}.png'.format(scenario,ovnovs,type,host,scenario,type)) 

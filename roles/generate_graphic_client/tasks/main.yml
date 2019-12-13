@@ -1,0 +1,13 @@
+- name: sleep
+  pause:
+    minutes: 1
+
+- name: unzip all .gz
+  shell: gunzip /root/flent/{{ scenario }}/ {{ type }}/*.flent.gz
+
+- name: run script
+  shell: bash /root/flent/generate_graphic.sh
+  environment:
+    type: "{{ type }}"
+    scenario: "{{ scenario }}"
+    ovnovs: "{{ ovnovs }}"

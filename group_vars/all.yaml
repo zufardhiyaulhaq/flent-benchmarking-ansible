@@ -4,3 +4,6 @@ scenario: sndc
 
 type: rrul
 # list available: rrul, tcp_download, tcp_upload
+
+ovnovs: "ovn"
+# list available: "ovn", "ovs"

@@ -23,3 +23,8 @@
   hosts: openstack
   roles:
   - generate_graphic_openstack
+
+- name: generate graphic client
+  hosts: client
+  roles:
+  - { role: generate_graphic_client, become: yes }
