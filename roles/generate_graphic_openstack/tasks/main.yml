@@ -7,3 +7,4 @@
   environment:
     type: "{{ type }}"
     scenario: "{{ scenario }}"
+    ovnovs: "{{ ovnovs }}"
