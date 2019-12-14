@@ -8,3 +8,10 @@
     type: "{{ type }}"
     scenario: "{{ scenario }}"
     ovnovs: "{{ ovnovs }}"
+
+
+- name: ansible copy {{ ovnovs }}_{{ ansible_hostname }}_{{ scenario }}_{{ type }}.png
+  fetch:
+    src: /root/flent/{{ scenario }}/{{ type }}/{{ ovnovs }}_{{ ansible_hostname }}_{{ scenario }}_{{ type }}.png
+    dest: /root/flent/{{ scenario }}/{{ type }}/
+    flat: yes
