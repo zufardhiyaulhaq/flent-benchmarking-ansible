@@ -2,4 +2,61 @@ import os,json,sys
 import pandas as pd
 import statistics
 from operator import add 
+
+import matplotlib
+matplotlib.use('Agg')
+
 import matplotlib.pyplot as plt 
+
+# get scenario and type from environment
+host = os.uname()[1]
+scenario = sys.argv[1]
+type = sys.argv[2]
+ovnovs = sys.argv[3]
+
+
+# get all json files
+path_to_json = '/root/flent/{}/{}/'.format(scenario,type)
+json_files = [pos_json for pos_json in os.listdir(path_to_json) if pos_json.endswith('.flent')]
+
+# create empty list
+upload = []
+latency = []
+
+# get total files
+counter = len(json_files)
+
+# open all files
+for files in json_files:
+    with open("/root/flent/{}/{}/{}".format(scenario,type,files)) as json_file:
+        
+        # load data files
+        data = json.load(json_file)
+
+        upload.append(statistics.mean([i for i in data["results"]["TCP upload"] if i]))
+        latency.append(statistics.mean([i for i in data["results"]["Ping (ms) ICMP"] if i]))
+
+length = [i for i in range(counter)]
+
+if ovnovs == "ovn":
+    openstack_type = "Open Virtual Network"
+elif ovnovs == "ovs":
+    openstack_type = "Open vSwitch"
+
+fig, (ax1, ax2) = plt.subplots(2,constrained_layout=True)
+fig.suptitle('{} OpenStack Cluster\nTCP Upload Test\n Node: {} Scenario: {} Type: {}'.format(openstack_type,host,scenario,type))
+
+ax1.plot(length, upload) 
+ax1.set_title("TCP Upload")
+ax1.set_ylabel('Mbits/s')
+ax1.set_xlabel('repetition')
+
+ax2.plot(length, latency) 
+ax2.set_title("Ping")
+ax2.set_ylabel('Latency (ms)')
+ax2.set_xlabel('repetition')
+ 
+plt.legend() 
+
+# # create png
+plt.savefig('/root/flent/{}/{}/{}_{}_{}_{}.png'.format(scenario,type,ovnovs,host,scenario,type)) 

@@ -44,7 +44,7 @@
   template: src=get_cpu_memory.py.j2 dest=/root/flent/get_cpu_memory.py
 
 - name: copy python
-  template: src=generate_graphic.py.j2 dest=/root/flent/generate_graphic.py
+  template: src=cpu_memory_graphic.py.j2 dest=/root/flent/cpu_memory_graphic.py
 
 - name: copy bash
   template: src=test.sh.j2 dest=/root/flent/test.sh

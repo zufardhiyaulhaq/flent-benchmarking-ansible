@@ -53,12 +53,18 @@ cpu = list(map(lambda x: x/counter, cpu))
 mem = list(map(lambda x: x/counter, mem))
 length = [i for i in range(length)]
 
+if ovnovs == "ovn":
+    openstack_type = "Open Virtual Network"
+elif ovnovs == "ovs":
+    openstack_type = "Open vSwitch"
+
 # create plot
+plt.figure(constrained_layout=True)
 plt.plot(length, cpu, label = "CPU") 
 plt.plot(length, mem, label = "Memory") 
 plt.xlabel('Time') 
 plt.ylabel('Percentage') 
-plt.title('{}\nCPU & Memory Usage\n{} {} {}'.format(ovnovs,host,scenario,type)) 
+plt.title('{} OpenStack Cluster\nCPU & Memory Usage\n Node: {} Scenario: {} Type: {}'.format(openstack_type,host,scenario,type)) 
 plt.legend() 
 
 # create png

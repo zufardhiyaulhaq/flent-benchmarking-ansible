@@ -38,30 +38,31 @@ for files in json_files:
         upload.append(statistics.mean([i for i in data["results"]["TCP upload avg"] if i]))
         latency.append(statistics.mean([i for i in data["results"]["Ping (ms) avg"] if i]))
 
-        
-# # # if all data have been added, divide to get real data
-# download_average = list(map(lambda x: x/counter, download_average))
-# upload_average = list(map(lambda x: x/counter, upload_average))
-# latency_average = list(map(lambda x: x/counter, latency_average))
-
 length = [i for i in range(counter)]
 
-plt.subplot(221)
-plt.plot(length, download, label = "Download Average") 
-plt.xlabel('Time') 
-plt.ylabel('Mbits/s')
+if ovnovs == "ovn":
+    openstack_type = "Open Virtual Network"
+elif ovnovs == "ovs":
+    openstack_type = "Open vSwitch"
 
-plt.subplot(222)
-plt.plot(length, upload, label = "Upload Average") 
-plt.xlabel('Time') 
-plt.ylabel('Mbits/s')
+fig, (ax1, ax2, ax3) = plt.subplots(3,constrained_layout=True)
+fig.suptitle('{} OpenStack Cluster\nRealtime Response Under Load Test\n Node: {} Scenario: {} Type: {}'.format(openstack_type,host,scenario,type))
 
-plt.subplot(212)
-plt.plot(length, latency, label = "Latency Average") 
-plt.xlabel('Time') 
-plt.ylabel('Latency (ms)')
+ax1.plot(length, download) 
+ax1.set_title("TCP Download")
+ax1.set_ylabel('Mbits/s')
+ax1.set_xlabel('repetition')
 
-plt.suptitle('{}\nRealtime Response Under Load\n{} {} {}'.format(ovnovs,host,scenario,type))   
+ax2.plot(length, upload) 
+ax2.set_title("TCP Download")
+ax2.set_ylabel('Mbits/s')
+ax2.set_xlabel('repetition')
+
+ax3.plot(length, latency) 
+ax3.set_title("Ping")
+ax3.set_ylabel('Latency (ms)')
+ax3.set_xlabel('repetition')
+
 plt.legend() 
 
 # create png
