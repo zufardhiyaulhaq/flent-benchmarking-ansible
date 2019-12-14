@@ -3,7 +3,7 @@
     minutes: 1
 
 - name: unzip all .gz
-  shell: gunzip /root/flent/{{ scenario }}/ {{ type }}/*.flent.gz
+  shell: gunzip /root/flent/{{ scenario }}/{{ type }}/*.flent.gz
 
 - name: run script
   shell: bash /root/flent/generate_graphic.sh
