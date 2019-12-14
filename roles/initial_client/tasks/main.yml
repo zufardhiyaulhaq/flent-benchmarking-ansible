@@ -24,6 +24,9 @@
       - pandas
       - matplotlib
 
+- name: upgrade matplotlib
+  shell: pip3 install --upgrade matplotlib
+
 - name: Create a directory
   file:
     path: /root/flent/
