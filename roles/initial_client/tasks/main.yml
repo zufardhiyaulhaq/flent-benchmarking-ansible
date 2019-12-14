@@ -17,15 +17,19 @@
 - name: upgrade pip
   shell: pip3 install --upgrade pip
 
-- name: install python packages
+- name: Create virtual environment directory
+  file:
+    state: directory
+    path: /root/flent/virtualenv
+
+- name: Install requirements
   pip:
     executable: pip3
     name:
       - pandas
-      - matplotlib
-
-- name: upgrade matplotlib
-  shell: pip3 install --upgrade matplotlib
+      - matplotlib 
+    virtualenv: /root/flent/virtualenv
+    virtualenv_python: python3
 
 - name: Create a directory
   file:

@@ -1,6 +1,8 @@
 
 #!/bin/bash
 
+source /root/flent/virtualenv/bin/activate
+
 if [ "$type" == "rrul" ]
 then
     python3 /root/flent/rrul_graphic.py $scenario $type $ovnovs
