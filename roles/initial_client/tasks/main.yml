@@ -56,7 +56,7 @@
   template: src=rrul_graphic.py.j2 dest=/root/flent/rrul_graphic.py
 
 - name: copy python
-  template: src=tcp_download_graphic.py.j2 dest=/root/flent/tcp_download_graphic.py
+  template: src=tcp_download_graphic_py.j2 dest=/root/flent/tcp_download_graphic.py
 
 - name: copy python
   template: src=tcp_upload_graphic.py.j2 dest=/root/flent/tcp_upload_graphic.py
