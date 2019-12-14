@@ -1,6 +1,6 @@
 - name: sleep
   pause:
-    minutes: 1
+    seconds: 10
 
 {% for i in range(repetition) %}
 - name: run script
@@ -13,6 +13,6 @@
     
 - name: sleep
   pause:
-    minutes: 1
+    seconds: 10
 {% endfor %}
   

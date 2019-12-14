@@ -1,6 +1,6 @@
 - name: sleep
   pause:
-    minutes: 1
+    seconds: 10
 
 - name: unzip all .gz
   shell: gunzip /root/flent/{{ scenario }}/{{ type }}/*.flent.gz
