@@ -2,6 +2,10 @@ import os,json,sys
 import pandas as pd
 import statistics
 from operator import add 
+
+import matplotlib
+matplotlib.use('Agg')
+
 import matplotlib.pyplot as plt 
 
 # get scenario and type from environment
@@ -9,6 +13,7 @@ host = os.uname()[1]
 scenario = sys.argv[1]
 type = sys.argv[2]
 ovnovs = sys.argv[3]
+
 
 # get all json files
 path_to_json = '/root/flent/{}/{}/'.format(scenario,type)
@@ -41,9 +46,6 @@ for files in json_files:
 
 length = [i for i in range(counter)]
 
-
-plt.figure()
-
 plt.subplot(221)
 plt.plot(length, download, label = "Download Average") 
 plt.xlabel('Time') 
@@ -63,4 +65,4 @@ plt.suptitle('{}\nRealtime Response Under Load\n{} {} {}'.format(ovnovs,host,sce
 plt.legend() 
 
 # create png
-plt.savefig('/root/flent/{}/{}/{}_{}_{}_{}.png'.format(scenario,ovnovs,type,host,scenario,type)) 
+plt.savefig('/root/flent/{}/{}/{}_{}_{}_{}.png'.format(scenario,type,ovnovs,host,scenario,type)) 
