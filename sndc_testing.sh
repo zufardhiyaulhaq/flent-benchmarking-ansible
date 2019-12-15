@@ -1,4 +1,4 @@
-echo << EOF > group_vars/all.yaml
+cat << EOF > group_vars/all.yaml
 scenario: sndc
 # list avaliable: sndc, snsc, dndc, dnsc
 
@@ -11,7 +11,7 @@ EOF
 
 ansible-playbook main.yml -i hosts/sndc
 
-echo << EOF > group_vars/all.yaml
+cat << EOF > group_vars/all.yaml
 scenario: sndc
 # list avaliable: sndc, snsc, dndc, dnsc
 
@@ -24,7 +24,7 @@ EOF
 
 ansible-playbook main.yml -i hosts/sndc
 
-echo << EOF > group_vars/all.yaml
+cat << EOF > group_vars/all.yaml
 scenario: sndc
 # list avaliable: sndc, snsc, dndc, dnsc
 
