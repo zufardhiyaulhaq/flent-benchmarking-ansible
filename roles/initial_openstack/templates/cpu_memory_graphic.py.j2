@@ -65,7 +65,9 @@ plt.plot(length, mem, label = "Memory")
 plt.xlabel('Time') 
 plt.ylabel('Percentage') 
 plt.title('{} OpenStack Cluster\nCPU & Memory Usage\n Node: {} Scenario: {} Type: {}'.format(openstack_type,host,scenario,type)) 
-plt.legend() 
+
+plt.annotate('Average CPU Usage: %.1f%%' % (statistics.mean(cpu)), (0.01, 0.5), xycoords='axes fraction', va='center')
+plt.annotate('Average Memory Usage: %.1f%%' % (statistics.mean(mem)), (0.01, 0.55), xycoords='axes fraction', va='center')
 
 # create png
 plt.savefig('/root/flent/{}/{}/{}_{}_{}_{}.png'.format(scenario,type,ovnovs,host,scenario,type)) 

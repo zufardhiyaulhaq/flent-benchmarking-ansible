@@ -50,13 +50,13 @@ ax1.plot(length, upload)
 ax1.set_title("TCP Upload")
 ax1.set_ylabel('Mbits/s')
 ax1.set_xlabel('repetition')
+ax1.annotate('Average: %.1f Mbits/s' % (statistics.mean(upload)), (0.01, 0.5), xycoords='axes fraction', va='center')
 
 ax2.plot(length, latency) 
 ax2.set_title("Ping")
 ax2.set_ylabel('Latency (ms)')
 ax2.set_xlabel('repetition')
- 
-plt.legend() 
+ax2.annotate('Average: %.1f ms' % (statistics.mean(latency)), (0.01, 0.5), xycoords='axes fraction', va='center')
 
 # # create png
 plt.savefig('/root/flent/{}/{}/{}_{}_{}_{}.png'.format(scenario,type,ovnovs,host,scenario,type)) 
