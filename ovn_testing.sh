@@ -1,3 +1,6 @@
+KEY=ansible-ssh
+FLAVOR=m1.xlarge
+
 ssh root@10.100.100.200 /bin/bash << EOF
 source /root/admin_rc
 KEY=ansible-ssh
@@ -9,7 +12,7 @@ openstack server add floating ip vm-sndc-1 10.102.102.225
 openstack server add floating ip vm-sndc-2 10.102.102.226
 EOF
 
-sleep 120
+sleep 240
 
 cat << EOF > group_vars/all.yaml
 scenario: sndc
@@ -58,7 +61,7 @@ openstack server add floating ip vm-snsc-1 10.102.102.225
 openstack server add floating ip vm-snsc-2 10.102.102.226
 EOF
 
-sleep 120
+sleep 240
 
 cat << EOF > group_vars/all.yaml
 scenario: snsc
@@ -107,7 +110,7 @@ openstack server add floating ip vm-dnsc-1 10.102.102.225
 openstack server add floating ip vm-dnsc-2 10.102.102.226
 EOF
 
-sleep 120
+sleep 240
 
 cat << EOF > group_vars/all.yaml
 scenario: dnsc
@@ -156,7 +159,7 @@ openstack server add floating ip vm-dndc-1 10.102.102.225
 openstack server add floating ip vm-dndc-2 10.102.102.226
 EOF
 
-sleep 120
+sleep 240
 
 cat << EOF > group_vars/all.yaml
 scenario: dndc
