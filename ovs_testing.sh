@@ -195,3 +195,15 @@ ovnovs: "ovs"
 # list available: "ovn", "ovs"
 EOF
 ansible-playbook main.yml -i hosts/dndc
+
+ssh root@10.100.100.200 /bin/bash << EOF
+source /root/admin_rc
+KEY=ansible-ssh
+FLAVOR=m1.medium
+
+openstack server remove floating ip vm-dndc-1 10.102.102.225
+openstack server remove floating ip vm-dndc-2 10.102.102.226
+openstack server delete vm-dndc-1 vm-dndc-2
+
+sleep 20
+EOF
