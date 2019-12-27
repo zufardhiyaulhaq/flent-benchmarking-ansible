@@ -1,10 +1,10 @@
 KEY=ansible-ssh
-FLAVOR=m1.xlarge
+FLAVOR=m1.medium
 
 ssh root@10.100.100.200 /bin/bash << EOF
 source /root/admin_rc
 KEY=ansible-ssh
-FLAVOR=m1.xlarge
+FLAVOR=m1.medium
 
 openstack server create --security-group sg-standard --key-name ${KEY} --flavor ${FLAVOR} --image ubuntu-xenial --port internal0-1 vm-sndc-1 --availability-zone nova:zu-ovn-compute0
 openstack server create --security-group sg-standard --key-name ${KEY} --flavor ${FLAVOR} --image ubuntu-xenial --port internal0-2 vm-sndc-2 --availability-zone nova:zu-ovn-compute1
@@ -47,7 +47,7 @@ ansible-playbook main.yml -i hosts/sndc
 ssh root@10.100.100.200 /bin/bash << EOF
 source /root/admin_rc
 KEY=ansible-ssh
-FLAVOR=m1.xlarge
+FLAVOR=m1.medium
 
 openstack server remove floating ip vm-sndc-1 10.102.102.225
 openstack server remove floating ip vm-sndc-2 10.102.102.226
@@ -96,7 +96,7 @@ ansible-playbook main.yml -i hosts/snsc
 ssh root@10.100.100.200 /bin/bash << EOF
 source /root/admin_rc
 KEY=ansible-ssh
-FLAVOR=m1.xlarge
+FLAVOR=m1.medium
 
 openstack server remove floating ip vm-snsc-1 10.102.102.225
 openstack server remove floating ip vm-snsc-2 10.102.102.226
@@ -145,7 +145,7 @@ ansible-playbook main.yml -i hosts/dnsc
 ssh root@10.100.100.200 /bin/bash << EOF
 source /root/admin_rc
 KEY=ansible-ssh
-FLAVOR=m1.xlarge
+FLAVOR=m1.medium
 
 openstack server remove floating ip vm-dnsc-1 10.102.102.225
 openstack server remove floating ip vm-dnsc-2 10.102.102.226
