@@ -8,6 +8,7 @@ FLAVOR=m1.medium
 
 openstack server create --security-group sg-standard --key-name ${KEY} --flavor ${FLAVOR} --image ubuntu-xenial --port internal0-1 vm-sndc-1 --availability-zone nova:zu-ovn-compute0
 openstack server create --security-group sg-standard --key-name ${KEY} --flavor ${FLAVOR} --image ubuntu-xenial --port internal0-2 vm-sndc-2 --availability-zone nova:zu-ovn-compute1
+sleep 100
 openstack server add floating ip vm-sndc-1 10.102.102.225
 openstack server add floating ip vm-sndc-2 10.102.102.226
 EOF
@@ -57,6 +58,7 @@ sleep 20
 
 openstack server create --security-group sg-standard --key-name ${KEY} --flavor ${FLAVOR} --image ubuntu-xenial --port internal0-1 vm-snsc-1 --availability-zone nova:zu-ovn-compute1
 openstack server create --security-group sg-standard --key-name ${KEY} --flavor ${FLAVOR} --image ubuntu-xenial --port internal0-2 vm-snsc-2 --availability-zone nova:zu-ovn-compute1
+sleep 100
 openstack server add floating ip vm-snsc-1 10.102.102.225
 openstack server add floating ip vm-snsc-2 10.102.102.226
 EOF
@@ -106,6 +108,7 @@ sleep 20
 
 openstack server create --security-group sg-standard --key-name ${KEY} --flavor ${FLAVOR} --image ubuntu-xenial --port internal0-1 vm-dnsc-1 --availability-zone nova:zu-ovn-compute1
 openstack server create --security-group sg-standard --key-name ${KEY} --flavor ${FLAVOR} --image ubuntu-xenial --port internal1-1 vm-dnsc-2 --availability-zone nova:zu-ovn-compute1
+sleep 100
 openstack server add floating ip vm-dnsc-1 10.102.102.225
 openstack server add floating ip vm-dnsc-2 10.102.102.226
 EOF
@@ -155,6 +158,7 @@ sleep 20
 
 openstack server create --security-group sg-standard --key-name ${KEY} --flavor ${FLAVOR} --image ubuntu-xenial --port internal0-1 vm-dndc-1 --availability-zone nova:zu-ovn-compute0
 openstack server create --security-group sg-standard --key-name ${KEY} --flavor ${FLAVOR} --image ubuntu-xenial --port internal1-1 vm-dndc-2 --availability-zone nova:zu-ovn-compute1
+sleep 100
 openstack server add floating ip vm-dndc-1 10.102.102.225
 openstack server add floating ip vm-dndc-2 10.102.102.226
 EOF
