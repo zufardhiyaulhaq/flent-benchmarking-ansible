@@ -16,7 +16,7 @@
     update_cache: yes
 
 - name: upgrade pip
-  shell: pip3 install --upgrade pip
+  shell: pip3 install --upgrade pip --timeout 1000
 
 - name: Create virtual environment directory
   file:
