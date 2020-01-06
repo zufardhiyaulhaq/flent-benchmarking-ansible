@@ -1,0 +1,340 @@
+sndc:
+    ovn:
+        rrul:
+            data:
+                download: 47.7
+                upload: 23.7
+                latency: 16.2
+            resources:
+                compute0:
+                    memory: 29.3
+                    cpu: 32.5
+                compute1:
+                    memory: 43.3
+                    cpu: 45.8
+                controller:
+                    memory: 55.8
+                    cpu: 5.9
+        tcp_upload:
+            data:
+                upload: 359.9
+            resources:
+                compute0:
+                    memory: 30.4
+                    cpu: 23.8
+                compute1:
+                    memory: 43.5
+                    cpu: 34.2
+                controller:
+                    memory: 55.9
+                    cpu: 6.9
+        tcp_download:
+            data:
+                download: 456.4
+            resources:
+                compute0:
+                    memory: 29.8
+                    cpu: 25.9
+                compute1:
+                    memory: 43.4
+                    cpu: 35.4
+                controller:
+                    memory: 55.9
+                    cpu: 6.9
+    ovs:
+        rrul:
+            data:
+                download: 51.7
+                upload: 25.1
+                latency: 14.0
+            resources:
+                compute0:
+                    memory: 28.0
+                    cpu: 31.7
+                compute1:
+                    memory: 41.9
+                    cpu: 45.9
+                controller:
+                    memory: 59.0
+                    cpu: 5.8
+        tcp_upload:
+            data:
+                upload: 359.1
+            resources:
+                compute0:
+                    memory: 28.7
+                    cpu: 24.2
+                compute1:
+                    memory: 41.8
+                    cpu: 33.5
+                controller:
+                    memory: 58.2
+                    cpu: 6.7
+        tcp_download:
+            data:
+                download: 484.7
+            resources:
+                compute0:
+                    memory: 28.3
+                    cpu: 26.1
+                compute1:
+                    memory: 41.9
+                    cpu: 36.6
+                controller:
+                    memory: 58.0
+                    cpu: 6.8
+snsc:
+    ovn:
+        rrul:
+            data:
+                download: 69.8
+                upload: 42.6
+                latency: 26.6
+            resources:
+                compute0:
+                    memory: 13.5
+                    cpu: 0.5
+                compute1:
+                    memory: 59.8
+                    cpu: 71.4
+                controller:
+                    memory: 57.5
+                    cpu: 4.5
+        tcp_upload:
+            data:
+                upload: 544.6
+            resources:
+                compute0:
+                    memory: 13.5
+                    cpu: 0.7
+                compute1:
+                    memory: 60.7
+                    cpu: 54.2
+                controller:
+                    memory: 57.6
+                    cpu: 5.7
+        tcp_download:
+            data:
+                download: 595.9
+            resources:
+                compute0:
+                    memory: 13.5
+                    cpu: 0.7
+                compute1:
+                    memory: 60.6
+                    cpu: 54.2
+                controller:
+                    memory: 57.5
+                    cpu: 5.7
+    ovs:
+        rrul:
+            data:
+                download: 68.1
+                upload: 45.2
+                latency: 23.8
+            resources:
+                compute0:
+                    memory: 11.7
+                    cpu: 0.5
+                compute1:
+                    memory: 58.2
+                    cpu: 71.6
+                controller:
+                    memory: 60.8
+                    cpu: 4.3
+        tcp_upload:
+            data:
+                upload: 512.9
+            resources:
+                compute0:
+                    memory: 11.8
+                    cpu: 0.6
+                compute1:
+                    memory: 59.0
+                    cpu: 54.9
+                controller:
+                    memory: 60.8
+                    cpu: 5.5
+        tcp_download:
+            data:
+                download: 575.3
+            resources:
+                compute0:
+                    memory: 11.7
+                    cpu: 0.6
+                compute1:
+                    memory: 59.0
+                    cpu: 55.8
+                controller:
+                    memory: 60.8
+                    cpu: 5.4
+dnsc:
+    ovn:
+        rrul:
+            data:
+                download: 68.7
+                upload: 46.4
+                latency: 26.8
+            resources:
+                compute0:
+                    memory: 13.5
+                    cpu: 0.6
+                compute1:
+                    memory: 59.6
+                    cpu: 71.6
+                controller:
+                    memory: 57.8
+                    cpu: 4.4
+        tcp_upload:
+            data:
+                upload: 556.3
+            resources:
+                compute0:
+                    memory: 13.5
+                    cpu: 0.7
+                compute1:
+                    memory: 60.2
+                    cpu: 54.3
+                controller:
+                    memory: 57.9
+                    cpu: 5.8
+        tcp_download:
+            data:
+                download: 593.6
+            resources:
+                compute0:
+                    memory: 13.5
+                    cpu: 0.7
+                compute1:
+                    memory: 60.2
+                    cpu: 54.4
+                controller:
+                    memory: 57.8
+                    cpu: 5.7
+    ovs:
+        rrul:
+            data:
+                download:  56.7
+                upload: 34.0
+                latency: 22.8
+            resources:
+                compute0:
+                    memory: 11.8
+                    cpu: 0.6
+                compute1:
+                    memory: 57.8
+                    cpu: 70.1
+                controller:
+                    memory: 61.0
+                    cpu: 11.6
+        tcp_upload:
+            data:
+                upload: 400.5
+            resources:
+                compute0:
+                    memory: 11.8
+                    cpu: 0.7
+                compute1:
+                    memory: 58.6
+                    cpu: 53.6
+                controller:
+                    memory: 61.0
+                    cpu: 11.6
+        tcp_download:
+            data:
+                download: 427.8
+            resources:
+                compute0:
+                    memory: 11.8
+                    cpu: 0.7
+                compute1:
+                    memory: 58.6
+                    cpu: 54.7
+                controller:
+                    memory: 61.0
+                    cpu: 12.5
+dndc:
+    ovn:
+        rrul:
+            data:
+                download: 49.0
+                upload: 23.3
+                latency: 15.6
+            resources:
+                compute0:
+                    memory: 29.6
+                    cpu: 32.1
+                compute1:
+                    memory: 43.5
+                    cpu: 45.7
+                controller:
+                    memory: 58.1
+                    cpu: 5.9
+        tcp_upload:
+            data:
+                upload: 352.2
+            resources:
+                compute0:
+                    memory: 30.5
+                    cpu: 24.5
+                compute1:
+                    memory: 43.6
+                    cpu: 35.1
+                controller:
+                    memory: 58.2
+                    cpu: 6.8
+        tcp_download:
+            data:
+                download: 456.3
+            resources:
+                compute0:
+                    memory: 30.0
+                    cpu: 25.7
+                compute1:
+                    memory: 43.6
+                    cpu: 35.4
+                controller:
+                    memory: 58.2
+                    cpu: 6.9
+    ovs:
+        rrul:
+            data:
+                download: 46.9
+                upload: 22.9
+                latency: 21.1
+            resources:
+                compute0:
+                    memory: 28.1
+                    cpu: 32.9
+                compute1:
+                    memory: 42.0
+                    cpu: 47.0
+                controller:
+                    memory: 61.2
+                    cpu: 13.3
+        tcp_upload:
+            data:
+                upload: 315.0
+            resources:
+                compute0:
+                    memory: 28.5
+                    cpu: 24.8
+                compute1:
+                    memory: 42.1
+                    cpu: 35.3
+                controller:
+                    memory: 61.3
+                    cpu: 13.5
+        tcp_download:
+            data:
+                download: 439.7
+            resources:
+                compute0:
+                    memory: 28.5
+                    cpu: 27.0
+                compute1:
+                    memory: 42.0
+                    cpu: 37.3
+                controller:
+                    memory: 61.2
+                    cpu: 15.4
